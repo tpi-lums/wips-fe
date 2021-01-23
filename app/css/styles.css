@@ -1,0 +1,30 @@
+:root {
+    --primary-color: #2e3192;
+}
+
+.hero-bg {
+    background: url('../img/hero-bg.jpg');
+    background-size: cover;
+    text-align: center;
+}
+
+.primary-color {
+    color: var(--primary-color);
+}
+
+.transition {
+    transition: all ease-in 0.3s;
+}
+
+.button.is-primary.is-inverted.is-outlined.welcome-button:hover,
+.button.is-primary.is-inverted.is-outlined.welcome-button:focus {
+    color: black;
+}
+
+.navbar-item.logo-title:hover {
+    color: var(--primary-color);
+}
+
+.ss-form {
+    width: 100%;
+}
