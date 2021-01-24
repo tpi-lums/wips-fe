@@ -28,13 +28,13 @@
                                 libero. Nulla congue ut elit in fringilla. Integer quis auctor erat.
                             </p>
                         </div>
-                        <form class="ss-form">
-                            <div class="field is-vertical">
+                        <form class="ss-form" id="ss-form" method="post">
+                            <div class="field">
                                 <label class="label">From</label>
                                 <div class="field-body">
                                     <div class="field">
                                         <p class="control is-expanded has-icons-left">
-                                            <input class="input" type="text" placeholder="Name">
+                                            <input required name="name" class="input" type="text" placeholder="Name">
                                             <span class="icon is-small is-left">
                                                 <i class="material-icons">person</i>
                                             </span>
@@ -42,7 +42,7 @@
                                     </div>
                                     <div class="field">
                                         <p class="control is-expanded has-icons-left">
-                                            <input class="input" type="email" placeholder="Email">
+                                            <input required name="email" class="input" type="email" placeholder="Email">
                                             <span class="icon is-small is-left">
                                                 <i class="material-icons">email</i>
                                             </span>
@@ -51,18 +51,18 @@
                                 </div>
                             </div>
 
-                            <div class="field is-horizontal">
+                            <div class="field">
                                 <div class="field-body">
                                     <div class="field is-expanded">
                                         <div class="field has-addons">
                                             <p class="control is-expanded has-icons-left">
-                                                <input class="input" type="tel" placeholder="Your phone number">
+                                                <input required name="phone" class="input" type="tel"
+                                                    placeholder="Your phone number">
                                                 <span class="icon is-small is-left">
                                                     <i class="material-icons">phone</i>
                                                 </span>
                                             </p>
                                         </div>
-                                        <p class="help">Do not enter the first zero</p>
                                     </div>
                                 </div>
                             </div>
@@ -72,7 +72,7 @@
                                 <div class="field-body">
                                     <div class="field">
                                         <div class="control">
-                                            <input class="input" type="text"
+                                            <input required name="subject" class="input" type="text"
                                                 placeholder="Enter a subject for your email">
                                         </div>
                                     </div>
@@ -84,24 +84,53 @@
                                 <div class="field-body">
                                     <div class="field">
                                         <div class="control">
-                                            <textarea class="textarea"
+                                            <textarea required name="message" class="textarea"
                                                 placeholder="Type your message here..."></textarea>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="field">
-                                <div class="field-label">
-                                    <!-- Left empty for spacing -->
+                            <div class="field is-vertical">
+                                <label class="label">Enter the code below</label>
+                                <div class="field-body is-horizontal">
+                                    <div class="field has-addons">
+                                        <p class="control is-expanded">
+                                            <input name="captchaValue" class="input" placeholder="Code">
+                                        </p>
+                                        <p class="control">
+                                            <a class="button is-static">
+                                                <img id="captcha">
+                                                <span class="icon ml-1 is-small is-right reload-button" onclick="javascript:loadCaptcha()">
+                                                    <i class="material-icons">refresh</i>
+                                                </span>
+                                            </a>
+                                        </p>
+                                    </div>
+                                    <div class="field">
+                                        <div class="control">
+                                            <input name="captchaKey" type="hidden">
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="field-body">
+                                <p class="help is-danger" id="captcha-error"></p>
+                            </div>
+
+                            <div class="field">
+                                <div class="field-body is-flex is-align-items-center">
                                     <div class="field">
                                         <div class="control">
                                             <button class="button is-primary">
                                                 Send message
                                             </button>
                                         </div>
+                                    </div>
+
+                                    <div class="is-flex is-flex-grow-5 is-hidden" id="form-prompt">
+                                        <span class="icon mr-1">
+                                            <i class="material-icons has-text-success">check</i>
+                                        </span>
+                                        <h3 class="has-text-success">Your message has been sent!</h3>
                                     </div>
                                 </div>
                             </div>
@@ -118,6 +147,8 @@
     </section>
 
     <!--(bake /app/includes/footer.inc)-->
+
+    <script src="scripts.js"></script>
 
 </body>
 

@@ -16,10 +16,17 @@ module.exports = function(grunt) {
     },
     bake: {
       build: {
+        options: {
+          content: {
+            // api: 'http://localhost:3000'
+            api: 'https://wips-be.herokuapp.com'
+          },
+          removeUndefined: false
+        },
         files: [{
           expand: true,
           cwd: 'app',
-          src: ['**/*.html'],
+          src: ['**/*.html', '**/*.js'],
           dest: 'build/'
         }]
       }
