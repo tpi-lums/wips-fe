@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="../css/styles.css">
+  <title>Events</title>
+</head>
+
+<body>
+
+  <nav class="navbar has-shadow pl-5 pr-5" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+          <a class="navbar-item primary-color is-uppercase is-size-4 logo-title">
+              WIPS
+          </a>
+          <a role="button" class="navbar-burger" aria-label="menu" id="navbar-burger">
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+          </a>
+      </div>
+      <div class="navbar-menu" id="navbar-menu">
+          <div class="navbar-end">
+              <a href="../introduction" class="navbar-item is-uppercase">Introduction</a>
+              <a href="../share-a-story" class="navbar-item is-uppercase">Share a Story</a>
+              <a href="../events" class="navbar-item is-uppercase">Events</a>
+              <a href="../about" class="navbar-item is-uppercase">About</a>
+          </div>
+      </div>
+  </nav>
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+      const burger = document.getElementById('navbar-burger');
+
+      burger.addEventListener('click', () => {
+          target = document.getElementById('navbar-menu');
+          burger.classList.toggle('is-active');
+          target.classList.toggle('is-active');
+      });
+
+  });
+  </script>
+
+
+  <section class="section" id="eventsList">
+    <div class="container">
+      <div class="card event-card mb-6" v-for="event in events">
+        <div class="card-content">
+          <div class="media">
+            <div class="media-left">
+              <figure class="image event-image" :style="{backgroundImage: `url('${event.image}')`}">
+                <div class="date-placeholder box pt-2 pb-2 pl-5 pr-5 m-1 is-flex is-flex-direction-column is-align-items-center">
+                  <span>{{event.start | month}}</span>
+                  <span>{{event.start | day}}</span>
+                  <span v-if="!isSameDay(event.start, event.end)">TO {{event.end | month}} {{event.end | day}}</span>
+                </div>
+              </figure>
+            </div>
+            <div class="media-content">
+              <p class="title is-4 mb-2">{{event.summary}}</p>
+              <div class="content mb-4">
+                {{event.description}}
+              </div>
+              
+              <!-- if single day event, display date and then time -->
+              <p class="icon-text is-flex" v-if="isSameDay(event.start, event.end)">
+                <span class="icon mr-2">
+                  <i class="material-icons">today</i>
+                </span>
+                <span>{{event.start | formatDay}}</span>
+              </p>
+              <p class="icon-text is-flex" v-if="isSameDay(event.start, event.end)">
+                <span class="icon mr-2">
+                  <i class="material-icons">schedule</i>
+                </span>
+                <span>{{event.start | formatTime}} - {{event.end | formatTime}}</span>
+              </p>
+              <!--  -->
+
+              <!-- if multi-day event, then dispay range -->
+              <p class="icon-text is-flex" v-if="!isSameDay(event.start, event.end)">
+                <span class="icon mr-2">
+                  <i class="material-icons">date_range</i>
+                </span>
+                <span>{{event.start | formatDay}}, {{event.start | formatTime}} - {{event.end | formatDay}}, {{event.end | formatTime}}</span>
+              </p>
+              <!--  -->
+
+              <p class="icon-text is-flex mt-2" v-if="event.location">
+                <span class="icon mr-2">
+                  <i class="material-icons">location_on</i>
+                </span>
+                <span>{{event.location}}</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/moment@2.29.1/moment.min.js"></script>
+  <script src="scripts.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="../css/styles.css">
+    <title>Introduction</title>
+  </head>
+  <body>
+    
+    <nav class="navbar has-shadow pl-5 pr-5" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item primary-color is-uppercase is-size-4 logo-title">
+                WIPS
+            </a>
+            <a role="button" class="navbar-burger" aria-label="menu" id="navbar-burger">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+        <div class="navbar-menu" id="navbar-menu">
+            <div class="navbar-end">
+                <a href="../introduction" class="navbar-item is-uppercase">Introduction</a>
+                <a href="../share-a-story" class="navbar-item is-uppercase">Share a Story</a>
+                <a href="../events" class="navbar-item is-uppercase">Events</a>
+                <a href="../about" class="navbar-item is-uppercase">About</a>
+            </div>
+        </div>
+    </nav>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const burger = document.getElementById('navbar-burger');
+
+        burger.addEventListener('click', () => {
+            target = document.getElementById('navbar-menu');
+            burger.classList.toggle('is-active');
+            target.classList.toggle('is-active');
+        });
+
+    });
+    </script>
+
+    <section class="hero">
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="title">
+            Hello World
+          </h1>
+          <figure class="image is-3by1">
+            <img src="https://external-preview.redd.it/w1FiFKH-fRJyjTi3e8BQJ1oRZxuDs5pRw_ZXDw6O8vI.jpg?auto=webp&s=34345f890a9ba209d0618aab3c08d1d90bf51e47">
+          </figure>
+          <span class="subtitle is-6">
+            This is a subtitle.
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section pt-0">
+      <div class="container">
+        <div class="tile is-ancestor">
+          <div class="tile is-parent">
+            <div class="tile is-child">
+              <p class="title is-4">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ac lacinia purus, eu molestie odio. Etiam sed turpis ultrices ligula accumsan efficitur.
+              </p>
+              <p class="subtitle is-5 mt-2">
+                Maecenas dignissim, sapien condimentum semper gravida, urna neque varius ipsum, ac semper orci urna et tellus. Maecenas accumsan lectus non tincidunt ornare. Vestibulum at rhoncus augue. Quisque nibh odio, aliquet consequat vulputate ac, pellentesque vel mauris. Curabitur sodales vulputate dignissim. Suspendisse maximus odio urna, vitae malesuada ex facilisis malesuada. Proin molestie ultrices bibendum. Nulla tempor arcu volutpat odio blandit, at lobortis velit pulvinar.
+              </p>
+              <p class="subtitle is-5">
+                Aenean condimentum pretium viverra. Cras auctor malesuada justo, sit amet accumsan risus mollis laoreet. Integer interdum iaculis arcu. Nam efficitur scelerisque leo. Nullam fringilla vitae urna id scelerisque. Donec ac vestibulum nibh, elementum ornare ante. Suspendisse potenti. 
+              </p>
+            </div>
+          </div>
+          <div class="tile is-parent">
+            <div class="tile is-child">
+              <p class="title">Three</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+  </body>
+</html>

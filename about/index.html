@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="../css/styles.css">
+    <title>About</title>
+  </head>
+  <body>
+    
+    <nav class="navbar has-shadow pl-5 pr-5" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item primary-color is-uppercase is-size-4 logo-title">
+                WIPS
+            </a>
+            <a role="button" class="navbar-burger" aria-label="menu" id="navbar-burger">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+        <div class="navbar-menu" id="navbar-menu">
+            <div class="navbar-end">
+                <a href="../introduction" class="navbar-item is-uppercase">Introduction</a>
+                <a href="../share-a-story" class="navbar-item is-uppercase">Share a Story</a>
+                <a href="../events" class="navbar-item is-uppercase">Events</a>
+                <a href="../about" class="navbar-item is-uppercase">About</a>
+            </div>
+        </div>
+    </nav>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const burger = document.getElementById('navbar-burger');
+
+        burger.addEventListener('click', () => {
+            target = document.getElementById('navbar-menu');
+            burger.classList.toggle('is-active');
+            target.classList.toggle('is-active');
+        });
+
+    });
+    </script>
+
+    <section class="hero">
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="title">
+            About the Project
+          </h1>
+          <figure class="image is-3by1">
+            <img src="https://i.redd.it/mqbxwzrv9ad61.jpg">
+          </figure>
+          <span class="subtitle is-6">
+            This is a subtitle.
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section pt-0">
+      <div class="container">
+        <div class="tile is-ancestor">
+          <div class="tile is-parent">
+            <div class="tile is-child">
+              <p class="title">One</p>
+            </div>
+          </div>
+          <div class="tile is-parent">
+            <div class="tile is-child">
+              <p class="title">Three</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+  </body>
+</html>

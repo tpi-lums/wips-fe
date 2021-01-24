@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="../css/styles.css">
+    <title>Share a Story</title>
+</head>
+
+<body>
+
+    <nav class="navbar has-shadow pl-5 pr-5" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item primary-color is-uppercase is-size-4 logo-title">
+                WIPS
+            </a>
+            <a role="button" class="navbar-burger" aria-label="menu" id="navbar-burger">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+        <div class="navbar-menu" id="navbar-menu">
+            <div class="navbar-end">
+                <a href="../introduction" class="navbar-item is-uppercase">Introduction</a>
+                <a href="../share-a-story" class="navbar-item is-uppercase">Share a Story</a>
+                <a href="../events" class="navbar-item is-uppercase">Events</a>
+                <a href="../about" class="navbar-item is-uppercase">About</a>
+            </div>
+        </div>
+    </nav>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const burger = document.getElementById('navbar-burger');
+
+        burger.addEventListener('click', () => {
+            target = document.getElementById('navbar-menu');
+            burger.classList.toggle('is-active');
+            target.classList.toggle('is-active');
+        });
+
+    });
+    </script>
+
+    <section class="section">
+        <div class="container">
+            <div class="tile is-ancestor">
+                <div class="tile is-6 is-parent">
+                    <div class="tile is-child">
+                        <div class="content">
+                            <h1 class="title">Share a Story</h1>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris faucibus ipsum nec
+                                viverra aliquet. Mauris lectus urna, ullamcorper non pulvinar in, tristique vel sapien.
+                                Integer blandit quam id pellentesque efficitur. Quisque pretium risus in efficitur
+                                molestie. Aenean eget ligula nec augue malesuada cursus. Ut eu purus facilisis,
+                                venenatis urna sed, interdum turpis. Nulla neque nunc, aliquet at faucibus non,
+                                tincidunt quis metus. Praesent purus enim, sollicitudin sed efficitur id, vulputate et
+                                libero. Nulla congue ut elit in fringilla. Integer quis auctor erat.
+                            </p>
+                        </div>
+                        <form class="ss-form" id="ss-form" method="post">
+                            <div class="field">
+                                <label class="label">From</label>
+                                <div class="field-body">
+                                    <div class="field">
+                                        <p class="control is-expanded has-icons-left">
+                                            <input required name="name" class="input" type="text" placeholder="Name">
+                                            <span class="icon is-small is-left">
+                                                <i class="material-icons">person</i>
+                                            </span>
+                                        </p>
+                                    </div>
+                                    <div class="field">
+                                        <p class="control is-expanded has-icons-left">
+                                            <input required name="email" class="input" type="email" placeholder="Email">
+                                            <span class="icon is-small is-left">
+                                                <i class="material-icons">email</i>
+                                            </span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <div class="field-body">
+                                    <div class="field is-expanded">
+                                        <div class="field has-addons">
+                                            <p class="control is-expanded has-icons-left">
+                                                <input required name="phone" class="input" type="tel"
+                                                    placeholder="Your phone number">
+                                                <span class="icon is-small is-left">
+                                                    <i class="material-icons">phone</i>
+                                                </span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <label class="label">Subject</label>
+                                <div class="field-body">
+                                    <div class="field">
+                                        <div class="control">
+                                            <input required name="subject" class="input" type="text"
+                                                placeholder="Enter a subject for your email">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <label class="label">Message</label>
+                                <div class="field-body">
+                                    <div class="field">
+                                        <div class="control">
+                                            <textarea required name="message" class="textarea"
+                                                placeholder="Type your message here..."></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="field is-vertical">
+                                <label class="label">Enter the code below</label>
+                                <div class="field-body is-horizontal">
+                                    <div class="field has-addons">
+                                        <p class="control is-expanded">
+                                            <input name="captchaValue" class="input" placeholder="Code">
+                                        </p>
+                                        <p class="control">
+                                            <a class="button is-static">
+                                                <img id="captcha">
+                                                <span class="icon ml-1 is-small is-right reload-button" onclick="javascript:loadCaptcha()">
+                                                    <i class="material-icons">refresh</i>
+                                                </span>
+                                            </a>
+                                        </p>
+                                    </div>
+                                    <div class="field">
+                                        <div class="control">
+                                            <input name="captchaKey" type="hidden">
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="help is-danger" id="captcha-error"></p>
+                            </div>
+
+                            <div class="field">
+                                <div class="field-body is-flex is-align-items-center">
+                                    <div class="field">
+                                        <div class="control">
+                                            <button class="button is-primary">
+                                                Send message
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <div class="is-flex is-flex-grow-5 is-hidden" id="form-prompt">
+                                        <span class="icon mr-1">
+                                            <i class="material-icons has-text-success">check</i>
+                                        </span>
+                                        <h3 class="has-text-success">Your message has been sent!</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="tile is-parent ml-6">
+                    <div class="tile is-child">
+                        <p class="title">Three</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <script src="scripts.js"></script>
+
+</body>
+
+</html>

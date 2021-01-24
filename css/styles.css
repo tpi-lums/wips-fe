@@ -1,0 +1,73 @@
+:root {
+    --primary-color: #2e3192;
+}
+
+.hero-bg {
+    background: url('https://i.redd.it/2bqnja6r5jb61.jpg');
+    background-size: cover;
+    text-align: center;
+}
+
+.primary-color {
+    color: var(--primary-color);
+}
+
+.transition {
+    transition: all ease-in 0.3s;
+}
+
+.button.is-primary.is-inverted.is-outlined.welcome-button:hover,
+.button.is-primary.is-inverted.is-outlined.welcome-button:focus {
+    color: black;
+}
+
+.navbar-item.logo-title:hover {
+    color: var(--primary-color);
+}
+
+.ss-form {
+    width: 100%;
+}
+
+.reload-button {
+    pointer-events: all;
+}
+
+figure.event-image {
+    height: 220px;
+    background-size: cover;
+    background-color: #f0f0f0;
+}
+
+.card.event-card .media-left {
+    flex-basis: 35%;
+}
+
+@media only screen and (max-width: 1024px) {
+    .card.event-card .media {
+        flex-direction: column;
+    }
+    .card.event-card .media-left {
+        width: 100%;
+    }
+    .card.event-card .media-content {
+        margin-top: 1rem;;
+    }
+}
+
+div.date-placeholder {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    text-transform: uppercase;
+    background: rgba(255,255,255,0.7);
+}
+
+div.date-placeholder span:nth-child(1),
+div.date-placeholder span:nth-child(3) {
+    font-size: 0.7em;
+}
+
+div.date-placeholder span:nth-child(2) {
+    font-size: 1.5em;
+}
