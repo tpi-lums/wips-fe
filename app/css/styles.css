@@ -1,5 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;500&display=swap');
+
 :root {
     --primary-color: #2e3192;
+    --primary-font: 'Inter';
+}
+
+* {
+    font-family: 'Inter';
 }
 
 .hero-bg {
@@ -77,4 +84,18 @@ div.date-placeholder span:nth-child(2) {
 .gallery-tiles img.image {
     width: 100%;
     padding: .5rem;
+}
+
+p.content {
+    font-weight: lighter;
+    line-height: 1.5;
+}
+
+a.navbar-item.is-tab.is-active {
+    color: var(--primary-color);
+    border-bottom-color: var(--primary-color);
+}
+
+a.navbar-item:hover {
+    color: var(--primary-color);
 }
