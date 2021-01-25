@@ -12,7 +12,7 @@
   </head>
   <body>
     
-    <nav class="navbar has-shadow pl-5 pr-5" role="navigation" aria-label="main navigation">
+    <nav class="navbar has-shadow pl-5 pr-5 is-fixed-top" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
             <a class="navbar-item primary-color is-uppercase is-size-4 logo-title">
                 WIPS
@@ -32,8 +32,11 @@
             </div>
         </div>
     </nav>
+    <br>
+    <br>
     <script>
     document.addEventListener('DOMContentLoaded', () => {
+        // code for the burger menu
         const burger = document.getElementById('navbar-burger');
 
         burger.addEventListener('click', () => {
@@ -42,15 +45,23 @@
             target.classList.toggle('is-active');
         });
 
+        // code for navbar highlight
+        const navbar = document.getElementById('navbar-menu');
+        let currentLocation = window.location.pathname.replaceAll('/', '');
+        for (let tag of navbar.getElementsByTagName('a')) {
+            let tagLocation = new URL(tag.href).pathname.replaceAll('/', '');
+            if (tagLocation == currentLocation) {
+                tag.classList.add('is-active', 'is-tab');
+                break;
+            }
+        }
+
     });
     </script>
 
     <section class="hero">
       <div class="hero-body">
         <div class="container">
-          <h1 class="title">
-            About the Project
-          </h1>
           <figure class="image is-3by1">
             <img src="https://i.redd.it/mqbxwzrv9ad61.jpg">
           </figure>
@@ -66,12 +77,29 @@
         <div class="tile is-ancestor">
           <div class="tile is-parent">
             <div class="tile is-child">
-              <p class="title">One</p>
+              <p class="title">
+                About the Project
+              </p>
+              <p class="content is-medium">
+                The WIPSP project was established by Professor Sana Haroon while in a visiting position in the History Department at LUMS in AY 2019-20 and run by Professor Sameen Mohsin Ali, Assistant Professor in the Mushtaq Gurmani School. Professor Haroon and Professor Mohsin Ali are the founding members of the Advisory Board. Terms of appointment to and service on the advisory board will be documented in AY 2021-22.
+              </p>
             </div>
           </div>
           <div class="tile is-parent">
             <div class="tile is-child">
-              <p class="title">Three</p>
+              <p class="title">
+                Privacy
+              </p>
+              <p class="content is-medium">
+                All participants in the project sign documents of consent to interview, record and transcribe and confer intellectual and other rights in the interview to the Project. Participants have the right to remain anonymous in their interviews and be identified by an identifying number only and to restrict access to the interviews for a number of years. Documentation of consent and gift of the interviews is maintained by the Advisory Board in a secure location.
+              </p>
+              <br>
+              <p class="title">
+                Library/Archival protocols
+              </p>
+              <p class="content is-medium">
+                Audio recordings and transcripts will be electronically catalogued, added to the LUMS library database, and will be made available strictly only on the library premises on a non-networked and password protected computer. The Advisory Board will review access protocols periodically to ensure equitable access to the archive. Archiving procedures will be established and documented in AY 2021-22.
+              </p>
             </div>
           </div>
         </div>

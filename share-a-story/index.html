@@ -14,7 +14,7 @@
 
 <body>
 
-    <nav class="navbar has-shadow pl-5 pr-5" role="navigation" aria-label="main navigation">
+    <nav class="navbar has-shadow pl-5 pr-5 is-fixed-top" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
             <a class="navbar-item primary-color is-uppercase is-size-4 logo-title">
                 WIPS
@@ -34,8 +34,11 @@
             </div>
         </div>
     </nav>
+    <br>
+    <br>
     <script>
     document.addEventListener('DOMContentLoaded', () => {
+        // code for the burger menu
         const burger = document.getElementById('navbar-burger');
 
         burger.addEventListener('click', () => {
@@ -43,6 +46,17 @@
             burger.classList.toggle('is-active');
             target.classList.toggle('is-active');
         });
+
+        // code for navbar highlight
+        const navbar = document.getElementById('navbar-menu');
+        let currentLocation = window.location.pathname.replaceAll('/', '');
+        for (let tag of navbar.getElementsByTagName('a')) {
+            let tagLocation = new URL(tag.href).pathname.replaceAll('/', '');
+            if (tagLocation == currentLocation) {
+                tag.classList.add('is-active', 'is-tab');
+                break;
+            }
+        }
 
     });
     </script>
@@ -54,14 +68,8 @@
                     <div class="tile is-child">
                         <div class="content">
                             <h1 class="title">Share a Story</h1>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris faucibus ipsum nec
-                                viverra aliquet. Mauris lectus urna, ullamcorper non pulvinar in, tristique vel sapien.
-                                Integer blandit quam id pellentesque efficitur. Quisque pretium risus in efficitur
-                                molestie. Aenean eget ligula nec augue malesuada cursus. Ut eu purus facilisis,
-                                venenatis urna sed, interdum turpis. Nulla neque nunc, aliquet at faucibus non,
-                                tincidunt quis metus. Praesent purus enim, sollicitudin sed efficitur id, vulputate et
-                                libero. Nulla congue ut elit in fringilla. Integer quis auctor erat.
+                            <p class="content is-medium"> 
+                                If you would like to be interviewed for the oral history archive, please fill out the form below and our team will be in touch to discuss documentation and to set up an interview. Thank you for your interest in the project.
                             </p>
                         </div>
                         <form class="ss-form" id="ss-form" method="post">
