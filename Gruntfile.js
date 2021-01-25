@@ -30,13 +30,27 @@ module.exports = function(grunt) {
           dest: 'build/'
         }]
       }
+    },
+    relativeRoot: {
+      build: {
+        options: {
+          root: 'build/'
+        },
+        files: [{
+          expand: true,
+          cwd: 'build/',
+          src: ['**/*.html'],
+          dest: 'build/'
+        }]
+      }
     }
   });
 
   grunt.loadNpmTasks('grunt-bake');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-relative-root');
 
   // Default task(s).
-  grunt.registerTask('default', ['clean', 'copy', 'bake']);
+  grunt.registerTask('default', ['clean', 'copy', 'bake', 'relativeRoot']);
 };
