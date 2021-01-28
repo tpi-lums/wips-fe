@@ -19,7 +19,7 @@ module.exports = function(grunt) {
         options: {
           content: {
             // api: 'http://localhost:3000'
-            api: 'https://wips-be.herokuapp.com'
+            api: grunt.option('api') || 'https://wips-be.herokuapp.com'
           },
           removeUndefined: false
         },
