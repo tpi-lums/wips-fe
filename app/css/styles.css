@@ -6,7 +6,7 @@
 }
 
 * {
-    font-family: 'Inter';
+    font-family: var(--primary-font);
 }
 
 .hero-bg {
@@ -21,6 +21,10 @@
 
 .transition {
     transition: all ease-in 0.3s;
+}
+
+.welcome-button {
+    font-family: var(--primary-font);
 }
 
 .button.is-primary.is-inverted.is-outlined.welcome-button:hover,
