@@ -2,6 +2,7 @@
 
 :root {
     --primary-color: #2e3192;
+    --secondary-color: #252775;
     --primary-font: 'Inter';
 }
 
@@ -106,4 +107,13 @@ a.navbar-item.is-tab.is-active {
 
 a.navbar-item:hover {
     color: var(--primary-color);
+}
+
+.button.is-primary {
+    background-color: var(--primary-color);
+}
+
+.button.is-primary:hover,
+.button.is-primary:focus {
+    background-color: var(--secondary-color);
 }
