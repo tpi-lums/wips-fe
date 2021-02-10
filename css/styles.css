@@ -70,8 +70,14 @@ figure.event-image:hover {
     flex-basis: 35%;
 }
 
-.card.person-card figure {
-    float: right;
+.card.person-card,
+.card.person-card * {
+    background: transparent;
+}
+
+.card.person-card {
+    margin-right: 2rem;
+    margin-left: 2rem;
 }
 
 .card.person-card figure img {
@@ -80,7 +86,11 @@ figure.event-image:hover {
     min-width: 128px;
 }
 
-.card.person-card .content {
+.card.person-card .media-left {
+    margin-right: 2rem;
+}
+
+.card.person-card .media-content p {
     text-align: justify;
 }
 
@@ -89,17 +99,21 @@ figure.event-image:hover {
     .card.person-card .media {
         flex-direction: column;
     }
-    .card.event-card .media-left {
+    .card.event-card .media-left,
+    .card.person-card .media-left {
         width: 100%;
     }
     .card.event-card .media-content,
     .card.person-card .media-content {
         margin-top: 1rem;
     }
-
-    .card.person-card .content {
-        text-align: left;
+    .card.person-card .media-content .title {
+        text-align: center;
     }
+    .card.person-card .media-left figure {
+        margin: 0 auto;
+    }
+
 }
 
 div.date-placeholder {
@@ -155,6 +169,6 @@ a.navbar-item:hover {
 }
 
 .modal.modal-event-image img {
-    width: auto;
-    height: 100%;
+    max-height: 100%;
+    max-width: 100%;
 }
