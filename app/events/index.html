@@ -19,6 +19,7 @@
       <div class="card event-card mb-6" v-for="event in upcomingEvents">
         <event-card :event="event" @img-click="showModalImage"></event-card>
       </div>
+      <br>
       <h1 class="title" v-if="pastEvents.length">
         Past Events
       </h1>
