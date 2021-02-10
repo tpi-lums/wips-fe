@@ -79,10 +79,8 @@
               </figure>
             </div>
             <div class="media-content">
-              <p class="title is-4 mb-2">{{event.summary}}</p>
-              <p class="content mb-4">
-                {{event.description}}
-              </p>
+              <p class="title is-4 mb-2" v-html="event.summary"></p>
+              <p class="content mb-4" v-html="event.description"></p>
               
               <!-- if single day event, display date and then time -->
               <p class="icon-text is-flex content" v-if="isSameDay(event.start, event.end)">
@@ -112,7 +110,7 @@
                 <span class="icon mr-2">
                   <i class="material-icons">location_on</i>
                 </span>
-                <span>{{event.location}}</span>
+                <span v-html="event.location"></span>
               </p>
             </div>
           </div>

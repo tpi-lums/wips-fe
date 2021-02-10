@@ -11,8 +11,12 @@
 }
 
 .hero-bg {
-    background: url('https://i.redd.it/2bqnja6r5jb61.jpg');
+    background: linear-gradient(
+        rgba(0, 0, 0, 0.7), 
+        rgba(0, 0, 0, 0.7)
+      ), url('/img/landing.jpg');
     background-size: cover;
+    background-position: center;
     text-align: center;
 }
 
@@ -59,15 +63,35 @@ figure.event-image {
     flex-basis: 35%;
 }
 
-@media only screen and (max-width: 1024px) {
-    .card.event-card .media {
+.card.person-card figure {
+    float: right;
+}
+
+.card.person-card figure img {
+    border-radius: 50%;
+    max-width: 50%;
+    min-width: 128px;
+}
+
+.card.person-card .content {
+    text-align: justify;
+}
+
+@media only screen and (max-width: 768px) {
+    .card.event-card .media,
+    .card.person-card .media {
         flex-direction: column;
     }
     .card.event-card .media-left {
         width: 100%;
     }
-    .card.event-card .media-content {
-        margin-top: 1rem;;
+    .card.event-card .media-content,
+    .card.person-card .media-content {
+        margin-top: 1rem;
+    }
+
+    .card.person-card .content {
+        text-align: left;
     }
 }
 
