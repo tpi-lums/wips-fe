@@ -55,8 +55,15 @@
 
 figure.event-image {
     height: 220px;
-    background-size: cover;
+    background-size: 100%;
     background-color: #f0f0f0;
+    background-position-x: center;
+    transition: all ease-in 0.3s;
+    cursor: pointer;
+}
+
+figure.event-image:hover {
+    background-size: 120%;
 }
 
 .card.event-card .media-left {
@@ -140,4 +147,14 @@ a.navbar-item:hover {
 .button.is-primary:hover,
 .button.is-primary:focus {
     background-color: var(--secondary-color);
+}
+
+.modal.modal-event-image .modal-content {
+    overflow: hidden;
+    text-align: center;
+}
+
+.modal.modal-event-image img {
+    width: auto;
+    height: 100%;
 }

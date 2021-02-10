@@ -63,66 +63,84 @@
 
   <section class="section" id="eventsList" v-cloak>
     <div class="container">
-      <h1 class="title">
+      <h1 class="title" v-if="upcomingEvents.length">
         Upcoming Events
       </h1>
-      <div class="card event-card mb-6" v-for="event in events">
-        <div class="card-content">
-          <div class="media">
-            <div class="media-left">
-              <figure class="image event-image" :style="{backgroundImage: `url('${event.image}')`}">
-                <div class="date-placeholder box pt-2 pb-2 pl-5 pr-5 m-1 is-flex is-flex-direction-column is-align-items-center">
-                  <span>{{event.start | month}}</span>
-                  <span>{{event.start | day}}</span>
-                  <span v-if="!isSameDay(event.start, event.end)">TO {{event.end | month}} {{event.end | day}}</span>
-                </div>
-              </figure>
-            </div>
-            <div class="media-content">
-              <p class="title is-4 mb-2" v-html="event.summary"></p>
-              <p class="content mb-4" v-html="event.description"></p>
-              
-              <!-- if single day event, display date and then time -->
-              <p class="icon-text is-flex content" v-if="isSameDay(event.start, event.end)">
-                <span class="icon mr-2">
-                  <i class="material-icons">today</i>
-                </span>
-                <span>{{event.start | formatDay}}</span>
-              </p>
-              <p class="icon-text is-flex content" v-if="isSameDay(event.start, event.end)">
-                <span class="icon mr-2">
-                  <i class="material-icons">schedule</i>
-                </span>
-                <span>{{event.start | formatTime}} - {{event.end | formatTime}}</span>
-              </p>
-              <!--  -->
-
-              <!-- if multi-day event, then dispay range -->
-              <p class="icon-text is-flex content" v-if="!isSameDay(event.start, event.end)">
-                <span class="icon mr-2">
-                  <i class="material-icons">date_range</i>
-                </span>
-                <span>{{event.start | formatDay}}, {{event.start | formatTime}} - {{event.end | formatDay}}, {{event.end | formatTime}}</span>
-              </p>
-              <!--  -->
-
-              <p class="icon-text is-flex mt-2 content" v-if="event.location">
-                <span class="icon mr-2">
-                  <i class="material-icons">location_on</i>
-                </span>
-                <span v-html="event.location"></span>
-              </p>
-            </div>
-          </div>
-        </div>
+      <div class="card event-card mb-6" v-for="event in upcomingEvents">
+        <event-card :event="event" @img-click="showModalImage"></event-card>
       </div>
+      <h1 class="title" v-if="pastEvents.length">
+        Past Events
+      </h1>
+      <div class="card event-card mb-6" v-for="event in pastEvents">
+        <event-card :event="event" @img-click="showModalImage"></event-card>
+      </div>
+    </div>
+    <div class="modal modal-event-image" :class="{'is-active': showModal}">
+      <div class="modal-background"></div>
+      <div class="modal-content">
+        <img :src="modalImageUrl" class="">
+      </div>
+      <button class="modal-close is-large" @click="showModal = false" aria-label="close"></button>
     </div>
   </section>
 
 
 
-  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/moment@2.29.1/moment.min.js"></script>
+
+  <script type="text/x-template" id="event-template">
+    <div class="card-content">
+      <div class="media">
+        <div class="media-left">
+          <figure class="image event-image" @click="imgClick(event.image)" :style="{backgroundImage: `url('${event.image}')`}">
+            <div class="date-placeholder box pt-2 pb-2 pl-5 pr-5 m-1 is-flex is-flex-direction-column is-align-items-center">
+              <span>{{event.startsAt | month}}</span>
+              <span>{{event.startsAt | day}}</span>
+              <span v-if="!isSameDay(event.startsAt, event.endsAt)">TO {{event.endsAt | month}} {{event.endsAt | day}}</span>
+            </div>
+          </figure>
+        </div>
+        <div class="media-content">
+          <p class="title is-4 mb-2" v-html="event.summary"></p>
+          <p class="content mb-4" v-html="event.description"></p>
+          
+          <!-- if single day event, display date and then time -->
+          <p class="icon-text is-flex content" v-if="isSameDay(event.startsAt, event.endsAt)">
+            <span class="icon mr-2">
+              <i class="material-icons">today</i>
+            </span>
+            <span>{{event.startsAt | formatDay}}</span>
+          </p>
+          <p class="icon-text is-flex content" v-if="isSameDay(event.startsAt, event.endsAt)">
+            <span class="icon mr-2">
+              <i class="material-icons">schedule</i>
+            </span>
+            <span>{{event.startsAt | formatTime}} - {{event.endsAt | formatTime}}</span>
+          </p>
+          <!--  -->
+  
+          <!-- if multi-day event, then dispay range -->
+          <p class="icon-text is-flex content" v-if="!isSameDay(event.startsAt, event.endsAt)">
+            <span class="icon mr-2">
+              <i class="material-icons">date_range</i>
+            </span>
+            <span>{{event.startsAt | formatDay}}, {{event.startsAt | formatTime}} - {{event.endsAt | formatDay}}, {{event.endsAt | formatTime}}</span>
+          </p>
+          <!--  -->
+  
+          <p class="icon-text is-flex mt-2 content" v-if="event.location">
+            <span class="icon mr-2">
+              <i class="material-icons">location_on</i>
+            </span>
+            <span v-html="event.location"></span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </script>
+
   <script src="scripts.js"></script>
 
 </body>
