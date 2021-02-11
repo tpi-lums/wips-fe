@@ -35,7 +35,7 @@ const eventsList = new Vue({
         showModal: false
     },
     created: async function() {
-        let resp = await fetch('{{api}}/getEventList');
+        let resp = await fetch('{{apiUrl}}/getEventList');
         let res = await resp.json();
     
         if (resp.status == 200) {

@@ -6,7 +6,7 @@
 <script>
     function navigateTo(location, timeout=400) {
         document.body.classList.add('fade');
-        setTimeout(() => { window.location = location; }, timeout);
+        setTimeout(() => { window.location = '{{baseUrl}}' + location; }, timeout);
     }
 
     window.onload = function() {

@@ -7,7 +7,7 @@ document.getElementById('ss-form').addEventListener('submit', async(e) => {
         body[elem.name] = elem.value;
     }
 
-    let response = await fetch('{{api}}/sendMessage', {
+    let response = await fetch('{{apiUrl}}/sendMessage', {
         method: 'POST',
         body: JSON.stringify(body),
         headers: {
@@ -35,7 +35,7 @@ document.getElementById('ss-form').addEventListener('submit', async(e) => {
 
 async function loadCaptcha() {
     try {
-        let response = await fetch('{{api}}/getCaptcha');
+        let response = await fetch('{{apiUrl}}/getCaptcha');
         let res = await response.json();
         document.getElementsByName('captchaKey')[0].value = res.key;
         document.getElementById('captcha').src = 'data:image/png;base64,' + res.captcha;

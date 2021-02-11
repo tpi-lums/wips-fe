@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentLocation = window.location.pathname.replaceAll('/', '');
     for (let tag of navbar.getElementsByTagName('a')) {
         let tagLocation = tag.getAttribute('aria-label');
-        if (tagLocation == currentLocation) {
+        if (currentLocation.endsWith(tagLocation)) {
             tag.classList.add('is-active', 'is-tab');
             break;
         }
