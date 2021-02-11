@@ -1,7 +1,7 @@
 <nav class="navbar has-shadow pl-5 pr-5 is-fixed-top" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
-        <a class="navbar-item primary-color is-uppercase is-size-4 logo-title">
-            WIPS
+        <a class="navbar-item primary-color is-size-4 logo-title">
+            WiPSiP
         </a>
         <a role="button" class="navbar-burger" aria-label="menu" id="navbar-burger">
             <span aria-hidden="true"></span>
