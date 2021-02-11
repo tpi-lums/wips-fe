@@ -12,7 +12,7 @@
     <div class="navbar-menu" id="navbar-menu">
         <div class="navbar-end">
             <a aria-label="introduction" onclick="navigateTo('/introduction')" class="navbar-item is-uppercase">Introduction</a>
-            <a aria-label="share-a-story" onclick="navigateTo('/share-a-story')" class="navbar-item is-uppercase">Share a Story</a>
+            <a aria-label="share-your-story" onclick="navigateTo('/share-your-story')" class="navbar-item is-uppercase">Share your Story</a>
             <a aria-label="events" onclick="navigateTo('/events')" class="navbar-item is-uppercase">Events</a>
             <a aria-label="about" onclick="navigateTo('/about')" class="navbar-item is-uppercase">About</a>
         </div>
