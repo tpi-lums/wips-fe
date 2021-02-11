@@ -13,14 +13,14 @@
 
   <section class="section" id="eventsList" v-cloak>
     <div class="container">
-      <h1 class="title" v-if="upcomingEvents.length">
+      <h1 class="title is-4" v-if="upcomingEvents.length">
         Upcoming Events
       </h1>
       <div class="card event-card mb-6" v-for="event in upcomingEvents">
         <event-card :event="event" @img-click="showModalImage"></event-card>
       </div>
       <br>
-      <h1 class="title" v-if="pastEvents.length">
+      <h1 class="title is-4" v-if="pastEvents.length">
         Past Events
       </h1>
       <div class="card event-card mb-6" v-for="event in pastEvents">
@@ -38,7 +38,7 @@
 
   <!--(bake /app/includes/footer.inc)-->
 
-  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/moment@2.29.1/moment.min.js"></script>
 
   <script type="text/x-template" id="event-template">
@@ -54,7 +54,7 @@
           </figure>
         </div>
         <div class="media-content">
-          <p class="title is-4 mb-2" v-html="event.summary"></p>
+          <p class="title is-5 mb-2" v-html="event.summary"></p>
           <p class="content mb-4" v-html="event.description"></p>
           
           <!-- if single day event, display date and then time -->
