@@ -11,7 +11,7 @@
   <script>
       function navigateTo(location, timeout=400) {
           document.body.classList.add('fade');
-          setTimeout(() => { window.location = location; }, timeout);
+          setTimeout(() => { window.location = '/wips-fe' + location; }, timeout);
       }
 
       window.onload = function() {
@@ -61,7 +61,7 @@
       let currentLocation = window.location.pathname.replaceAll('/', '');
       for (let tag of navbar.getElementsByTagName('a')) {
           let tagLocation = tag.getAttribute('aria-label');
-          if (tagLocation == currentLocation) {
+          if (currentLocation.endsWith(tagLocation)) {
               tag.classList.add('is-active', 'is-tab');
               break;
           }
@@ -76,7 +76,7 @@
         Upcoming Events
       </h1>
       <transition-group name="fade">  
-        <div class="card event-card mb-6" v-for="event in upcomingEvents" :key="event">
+        <div class="card event-card mb-6" v-for="event in upcomingEvents" :key="event.id">
           <event-card :event="event" @img-click="showModalImage"></event-card>
         </div>
       </transition-group>
@@ -85,7 +85,7 @@
         Past Events
       </h1>
       <transition-group name="fade">  
-        <div class="card event-card mb-6" v-for="event in pastEvents" :key="event">
+        <div class="card event-card mb-6" v-for="event in pastEvents" :key="event.id">
           <event-card :event="event" @img-click="showModalImage"></event-card>
         </div>
       </transition-group>
@@ -117,7 +117,7 @@
     </div>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/moment@2.29.1/moment.min.js"></script>
 
   <script type="text/x-template" id="event-template">

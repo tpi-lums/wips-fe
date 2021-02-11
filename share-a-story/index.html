@@ -11,7 +11,7 @@
     <script>
         function navigateTo(location, timeout=400) {
             document.body.classList.add('fade');
-            setTimeout(() => { window.location = location; }, timeout);
+            setTimeout(() => { window.location = '/wips-fe' + location; }, timeout);
         }
 
         window.onload = function() {
@@ -61,7 +61,7 @@
         let currentLocation = window.location.pathname.replaceAll('/', '');
         for (let tag of navbar.getElementsByTagName('a')) {
             let tagLocation = tag.getAttribute('aria-label');
-            if (tagLocation == currentLocation) {
+            if (currentLocation.endsWith(tagLocation)) {
                 tag.classList.add('is-active', 'is-tab');
                 break;
             }
