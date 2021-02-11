@@ -66,6 +66,7 @@ body > section.hero {
 
 .ss-form {
     width: 50%;
+    min-width: 400px;
     max-width: 600px;
 }
 
@@ -75,6 +76,7 @@ body > section.hero {
 
 figure.event-image {
     height: 220px;
+    min-width: 330px;
     background-size: 100%;
     background-color: #f0f0f0;
     background-position-x: center;
