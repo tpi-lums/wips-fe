@@ -19,14 +19,14 @@ module.exports = function(grunt) {
         options: {
           content: {
             baseUrl: grunt.option('baseUrl') || '',
-            apiUrl: grunt.option('api') || 'https://wips-be.herokuapp.com'
+            apiUrl: grunt.option('apiUrl') || 'https://wips-be.herokuapp.com'
           },
           removeUndefined: false
         },
         files: [{
           expand: true,
           cwd: 'app',
-          src: ['**/*.html', '**/*.js', '**/*.inc'],
+          src: ['**/*.html', '**/*.js'],
           dest: 'build/'
         }]
       }
