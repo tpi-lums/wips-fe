@@ -11,10 +11,10 @@
     </div>
     <div class="navbar-menu" id="navbar-menu">
         <div class="navbar-end">
-            <a href="/introduction" class="navbar-item is-uppercase">Introduction</a>
-            <a href="/share-a-story" class="navbar-item is-uppercase">Share a Story</a>
-            <a href="/events" class="navbar-item is-uppercase">Events</a>
-            <a href="/about" class="navbar-item is-uppercase">About</a>
+            <a aria-label="introduction" onclick="navigateTo('/introduction')" class="navbar-item is-uppercase">Introduction</a>
+            <a aria-label="share-a-story" onclick="navigateTo('/share-a-story')" class="navbar-item is-uppercase">Share a Story</a>
+            <a aria-label="events" onclick="navigateTo('/events')" class="navbar-item is-uppercase">Events</a>
+            <a aria-label="about" onclick="navigateTo('/about')" class="navbar-item is-uppercase">About</a>
         </div>
     </div>
 </nav>
@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const navbar = document.getElementById('navbar-menu');
     let currentLocation = window.location.pathname.replaceAll('/', '');
     for (let tag of navbar.getElementsByTagName('a')) {
-        let tagLocation = new URL(tag.href).pathname.replaceAll('/', '');
+        let tagLocation = tag.getAttribute('aria-label');
         if (tagLocation == currentLocation) {
             tag.classList.add('is-active', 'is-tab');
             break;
