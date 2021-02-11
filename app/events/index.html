@@ -13,18 +13,22 @@
 
   <section class="section" id="eventsList" v-cloak>
     <div class="container">
-      <h1 class="title is-4" v-if="upcomingEvents.length">
-        Upcoming Events
-      </h1>
+      <transition name="fade">
+        <h1 class="title is-4" v-if="upcomingEvents.length">
+          Upcoming Events
+        </h1>
+      </transition>
       <transition-group name="fade">  
         <div class="card event-card mb-6" v-for="event in upcomingEvents" :key="event.id">
           <event-card :event="event" @img-click="showModalImage"></event-card>
         </div>
       </transition-group>
       <br>
-      <h1 class="title is-4" v-if="pastEvents.length">
-        Past Events
-      </h1>
+      <transition name="fade">
+        <h1 class="title is-4" v-if="pastEvents.length">
+          Past Events
+        </h1>
+      </transition>
       <transition-group name="fade">  
         <div class="card event-card mb-6" v-for="event in pastEvents" :key="event.id">
           <event-card :event="event" @img-click="showModalImage"></event-card>
