@@ -33,14 +33,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // code for navbar highlight
     const navbar = document.getElementById('navbar-menu');
-    let currentLocation = window.location.pathname.replaceAll('/', '');
+    let currentLocation = window.location.pathname;
     for (let tag of navbar.getElementsByTagName('a')) {
-        let tagLocation = tag.getAttribute('aria-label');
-        if (currentLocation.endsWith(tagLocation)) {
+        if (currentLocation.includes(tag.getAttribute('aria-label'))) {
             tag.classList.add('is-active', 'is-tab');
             break;
         }
     }
-
 });
 </script>
