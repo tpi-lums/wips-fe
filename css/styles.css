@@ -172,3 +172,18 @@ a.navbar-item:hover {
     max-height: 100%;
     max-width: 100%;
 }
+
+.social-icon-container svg {
+    width: 24px;
+    height: 24px;
+    margin: 8px;
+    fill: #aaa;
+}
+
+.social-icon-container svg:hover {
+    fill: #666;
+}
+
+footer.footer {
+    color: #aaa;
+}
