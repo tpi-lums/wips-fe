@@ -182,8 +182,8 @@ a.navbar-item:hover {
     background-color: var(--primary-color);
 }
 
-.button.is-primary:hover,
-.button.is-primary:focus {
+.button.is-primary:hover:not(.button:disabled),
+.button.is-primary:focus:not(.button:disabled) {
     background-color: var(--secondary-color);
 }
 
