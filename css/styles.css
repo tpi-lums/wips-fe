@@ -138,6 +138,7 @@ figure.event-image:hover {
 
     .ss-form {
         width: 100%;
+        min-width: 0px;
     }    
 
 }
