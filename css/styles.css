@@ -182,9 +182,14 @@ a.navbar-item:hover {
     background-color: var(--primary-color);
 }
 
-.button.is-primary:hover:not(.button:disabled),
-.button.is-primary:focus:not(.button:disabled) {
+.button.is-primary:hover,
+.button.is-primary:focus,
+.button.is-primary:disabled {
     background-color: var(--secondary-color);
+}
+
+.button.is-primary:focus:not(:active) {
+    box-shadow: none;
 }
 
 .modal.modal-event-image .modal-content {
