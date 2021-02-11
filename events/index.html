@@ -8,11 +8,20 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="../css/styles.css">
+  <script>
+      function navigateTo(location, timeout=400) {
+          document.body.classList.add('fade');
+          setTimeout(() => { window.location = location; }, timeout);
+      }
 
+      window.onload = function() {
+          document.body.classList.remove('fade');
+      }
+  </script>
   <title>Events</title>
 </head>
 
-<body>
+<body class="fade">
 
   <nav class="navbar has-shadow pl-5 pr-5 is-fixed-top" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
@@ -27,10 +36,10 @@
       </div>
       <div class="navbar-menu" id="navbar-menu">
           <div class="navbar-end">
-              <a href="../introduction" class="navbar-item is-uppercase">Introduction</a>
-              <a href="../share-a-story" class="navbar-item is-uppercase">Share a Story</a>
-              <a href="../events" class="navbar-item is-uppercase">Events</a>
-              <a href="../about" class="navbar-item is-uppercase">About</a>
+              <a aria-label="introduction" onclick="navigateTo('/introduction')" class="navbar-item is-uppercase">Introduction</a>
+              <a aria-label="share-a-story" onclick="navigateTo('/share-a-story')" class="navbar-item is-uppercase">Share a Story</a>
+              <a aria-label="events" onclick="navigateTo('/events')" class="navbar-item is-uppercase">Events</a>
+              <a aria-label="about" onclick="navigateTo('/about')" class="navbar-item is-uppercase">About</a>
           </div>
       </div>
   </nav>
@@ -51,7 +60,7 @@
       const navbar = document.getElementById('navbar-menu');
       let currentLocation = window.location.pathname.replaceAll('/', '');
       for (let tag of navbar.getElementsByTagName('a')) {
-          let tagLocation = new URL(tag.href).pathname.replaceAll('/', '');
+          let tagLocation = tag.getAttribute('aria-label');
           if (tagLocation == currentLocation) {
               tag.classList.add('is-active', 'is-tab');
               break;
@@ -66,16 +75,20 @@
       <h1 class="title is-4" v-if="upcomingEvents.length">
         Upcoming Events
       </h1>
-      <div class="card event-card mb-6" v-for="event in upcomingEvents">
-        <event-card :event="event" @img-click="showModalImage"></event-card>
-      </div>
+      <transition-group name="fade">  
+        <div class="card event-card mb-6" v-for="event in upcomingEvents" :key="event">
+          <event-card :event="event" @img-click="showModalImage"></event-card>
+        </div>
+      </transition-group>
       <br>
       <h1 class="title is-4" v-if="pastEvents.length">
         Past Events
       </h1>
-      <div class="card event-card mb-6" v-for="event in pastEvents">
-        <event-card :event="event" @img-click="showModalImage"></event-card>
-      </div>
+      <transition-group name="fade">  
+        <div class="card event-card mb-6" v-for="event in pastEvents" :key="event">
+          <event-card :event="event" @img-click="showModalImage"></event-card>
+        </div>
+      </transition-group>
     </div>
     <div class="modal modal-event-image" :class="{'is-active': showModal}">
       <div class="modal-background"></div>
@@ -104,7 +117,7 @@
     </div>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/moment@2.29.1/moment.min.js"></script>
 
   <script type="text/x-template" id="event-template">

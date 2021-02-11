@@ -6,11 +6,20 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="./css/styles.css">
+    <script>
+        function navigateTo(location, timeout=400) {
+            document.body.classList.add('fade');
+            setTimeout(() => { window.location = location; }, timeout);
+        }
 
+        window.onload = function() {
+            document.body.classList.remove('fade');
+        }
+    </script>
     <link rel="stylesheet" href="./css/styles.css">
     <title>Women in Public Service in Pakistan</title>
   </head>
-  <body>
+  <body class="fade has-background-black">
     <section class="hero is-fullheight hero-bg">
       <div class="hero-body">
         <div class="container">
@@ -20,7 +29,7 @@
           <h2 class="subtitle has-text-white">
             An Oral History Archive
           </h2>
-          <a href='introduction'>
+          <a onclick="navigateTo('/introduction', 600)">
             <button class="button transition is-primary is-inverted is-outlined welcome-button">
               Get Started
             </button>

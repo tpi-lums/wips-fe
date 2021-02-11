@@ -187,3 +187,19 @@ a.navbar-item:hover {
 footer.footer {
     color: #aaa;
 }
+
+
+/* transition fade effects */
+body > section,
+.fade-enter-active, .fade-leave-active {
+    transition: opacity ease-in .4s;
+}
+
+body > section.hero-bg {
+    transition: opacity ease-in .6s;
+}
+
+body.fade > section,
+.fade-enter, .fade-leave-to {
+    opacity: 0;
+}
