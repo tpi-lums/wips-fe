@@ -55,14 +55,17 @@
             target.classList.toggle('is-active');
         });
 
-        // code for navbar highlight
         const navbar = document.getElementById('navbar-menu');
         let currentLocation = window.location.pathname;
         for (let tag of navbar.getElementsByTagName('a')) {
+            // highlight the nav button for current page
             if (currentLocation.includes(tag.getAttribute('aria-label'))) {
                 tag.classList.add('is-active', 'is-tab');
-                break;
             }
+            // add listener for collapsing burger menu when clicked
+            tag.addEventListener('click', () => {
+                navbar.classList.remove('is-active');
+            });
         }
     });
     </script>
