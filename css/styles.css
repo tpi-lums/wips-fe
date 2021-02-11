@@ -10,6 +10,20 @@
     font-family: var(--primary-font);
 }
 
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+body > section.section {
+    padding-top: 5rem;
+}
+
+body > section.hero {
+    padding-top: 3rem;
+}
+
 .hero-bg {
     background: linear-gradient(
         rgba(0, 0, 0, 0.7), 
@@ -46,7 +60,8 @@
 }
 
 .ss-form {
-    width: 100%;
+    width: 50%;
+    max-width: 600px;
 }
 
 .reload-button {
@@ -113,6 +128,10 @@ figure.event-image:hover {
     .card.person-card .media-left figure {
         margin: 0 auto;
     }
+
+    .ss-form {
+        width: 100%;
+    }    
 
 }
 
@@ -186,6 +205,7 @@ a.navbar-item:hover {
 
 footer.footer {
     color: #aaa;
+    margin-top: auto;
 }
 
 
