@@ -1,6 +1,7 @@
 document.getElementById('ss-form').addEventListener('submit', async(e) => {
 
     e.preventDefault();
+    setCaptchaError();
    
     let body = {};
     for (let elem of e.target) {
@@ -18,15 +19,18 @@ document.getElementById('ss-form').addEventListener('submit', async(e) => {
     let res = await response.json();
     
     if (response.status == 200) {
-        setCaptchaError();
         for (let elem of e.target) {
             elem.disabled = true;
         }   
-        let prompt = document.getElementById('form-prompt');     
+        let prompt = document.getElementById('form-success-prompt');     
         prompt.classList.remove('is-hidden');
     } else {
         if (res.err == 'BAD_CAPTCHA') {
             setCaptchaError('Invalid captcha code!')
+        }
+        else if (res.err == 'FAILED') {
+            let prompt = document.getElementById('form-fail-prompt');
+            prompt.classList.remove('is-hidden');
         }
     }
 
