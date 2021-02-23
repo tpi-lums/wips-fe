@@ -11,7 +11,7 @@
 }
 
 input.input,
-textarea.input {
+textarea.textarea {
     font-family: var(--primary-font);
 }
 
