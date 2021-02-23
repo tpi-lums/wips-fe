@@ -21,14 +21,6 @@ body {
     flex-direction: column;
 }
 
-body > section.section {
-    padding-top: 5rem;
-}
-
-body > section.hero {
-    padding-top: 3rem;
-}
-
 .hero-bg {
     background: linear-gradient(
         rgba(0, 0, 0, 0.7), 
@@ -205,20 +197,25 @@ a.navbar-item:hover {
     max-width: 100%;
 }
 
+.social-icon-container a {
+    outline: none;
+}
+
 .social-icon-container svg {
     width: 24px;
     height: 24px;
     margin: 8px;
-    fill: #aaa;
+    fill: #eee;
 }
 
 .social-icon-container svg:hover {
-    fill: #666;
+    fill: #ccc;
 }
 
 footer.footer {
-    color: #aaa;
+    color: #eee;
     margin-top: auto;
+    background-color: var(--secondary-color);
 }
 
 
@@ -235,4 +232,8 @@ body > section.hero-bg {
 body.fade > section,
 .fade-enter, .fade-leave-to {
     opacity: 0;
+}
+
+.content.is-medium {
+    font-size: 1.15rem;
 }
